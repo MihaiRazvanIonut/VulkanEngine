@@ -1,0 +1,1 @@
+C:\Facultate\LearningVulkan\VulkanEngine\x64\Debug\VulkanEngine.exe
