@@ -1,0 +1,223 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Facultate/LearningVulkan/VulkanEngine/ThirdParty/Include/vulkan/vulkan_structs.hpp"
+                },
+                "region": {
+                  "startLine": 94957,
+                  "startColumn": 53,
+                  "endLine": 94957,
+                  "endColumn": 68
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "vk::ShaderModuleCreateInfo::{ctor}",
+                  "decoratedName": "??0ShaderModuleCreateInfo@vk@@QEAA@V?$Flags@W4ShaderModuleCreateFlagBits@vk@@@1@AEBV?$ArrayProxyNoTemporaries@$$CBI@1@PEBX@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Facultate/LearningVulkan/VulkanEngine/ThirdParty/Include/vulkan/vulkan_structs.hpp"
+                },
+                "region": {
+                  "startLine": 94999,
+                  "startColumn": 18,
+                  "endLine": 94999,
+                  "endColumn": 33
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "vk::ShaderModuleCreateInfo::setCode",
+                  "decoratedName": "?setCode@ShaderModuleCreateInfo@vk@@QEAAAEAU12@AEBV?$ArrayProxyNoTemporaries@$$CBI@2@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32216.1",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Facultate/LearningVulkan/VulkanEngine/ThirdParty/Include/vulkan/vulkan_structs.hpp"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "33a5c11a094b1b7d33327863018292841628304df856e2e2cec1711089fc1acf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/main.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "beadb93e486c0396e7afe78bf139da59b8256f39f50ef90165848134d822b0f0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/engine.hpp"
+          },
+          "hashes": {
+            "sha-256": "c80a4c80b76cc9653327ed5e915afc7d3ec020cdc92a9bc5f6d8dcf5e5fa1cf9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/glfw/glfw3.h"
+          },
+          "hashes": {
+            "sha-256": "0992a30f01ebaa41c32f3f0588e942961abb8a9a52ca8764bd32ee4d7d71a46d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/config.hpp"
+          },
+          "hashes": {
+            "sha-256": "415d6bca5da6baf98b12b27fcc51b630e72e4bff7ecfdf5fdecf5e72770019fc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan.hpp"
+          },
+          "hashes": {
+            "sha-256": "960670de9c53efc92793ca6eff90cf8c36988cb204ed8d945949e3f5db2cb7d3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan.h"
+          },
+          "hashes": {
+            "sha-256": "4b7a1e1e6788386a21f21b570c04c8e034c1e00a1cd07358864f8ba121dda418"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vk_platform.h"
+          },
+          "hashes": {
+            "sha-256": "d9a851758af587525107589be8e894f5985fe64e34f4c25d77465a21a9e5a5a8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan_core.h"
+          },
+          "hashes": {
+            "sha-256": "0da3dd2b60bc5e43444d55b89e460d7aae78c90f6731a3d1c8917bee177e9aec"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vk_video/vulkan_video_codec_h264std.h"
+          },
+          "hashes": {
+            "sha-256": "b7503b856edc08121744eae669f6846751095e64c26d227df42a132044c8df71"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vk_video/vulkan_video_codec_h264std_decode.h"
+          },
+          "hashes": {
+            "sha-256": "ffd14e74829513636d218e06b810055dadeacb7aeab680d6e47084942ffd3a55"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vk_video/vulkan_video_codec_h265std.h"
+          },
+          "hashes": {
+            "sha-256": "0730356028e72aac75f797e2a24d37c4de5c4212c3c0e6c022194ff422a1ae3c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vk_video/vulkan_video_codec_h265std_decode.h"
+          },
+          "hashes": {
+            "sha-256": "0409946a50db38f4ee7b6c6ca38a624c2d896196af4db45ff36c6a86e6990117"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan_enums.hpp"
+          },
+          "hashes": {
+            "sha-256": "b56565cae8e7d746f18c59daf21491e77b53428d0474f00900c77a669f6bf106"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan_to_string.hpp"
+          },
+          "hashes": {
+            "sha-256": "792149159a45e25f448e1c962bf7128fea9ca189bdfa06a208f925c0b238903d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan_handles.hpp"
+          },
+          "hashes": {
+            "sha-256": "5ffe0553e9b22485f77607bdcf0e3f334a748a52748c0e446b269e8d074b3882"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/facultate/learningvulkan/vulkanengine/thirdparty/include/vulkan/vulkan_funcs.hpp"
+          },
+          "hashes": {
+            "sha-256": "59cd13e4e5fa5a92f9ecdc382d625314fb7f7151a54aa1aeda539237a373a203"
+          }
+        }
+      ]
+    }
+  ]
+}

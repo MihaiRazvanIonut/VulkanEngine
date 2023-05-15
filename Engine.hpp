@@ -1,7 +1,7 @@
 #pragma once
 
-#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
+#include "Config.hpp"
 
 class Engine {
 
@@ -17,7 +17,17 @@ private:
 	int height = 480;
 	GLFWwindow* window = nullptr;
 
+	vk::Instance instance = nullptr;
+
+	vk::DispatchLoaderDynamic dispatch_loader;
+
+	vk::DebugUtilsMessengerEXT debug_messenger = nullptr;
+
 	void buildGlfwWindow();
+
+	void makeInstance();
+
+	void makeDebugMessenger();
 
 
 };

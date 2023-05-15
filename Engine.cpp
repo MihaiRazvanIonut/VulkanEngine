@@ -1,11 +1,15 @@
 #include "Engine.hpp"
-#include <iostream>
+#include "Instance.hpp"
+#include "Logging.hpp"
 
 
 Engine::Engine() {
 
 	buildGlfwWindow();
 
+	Engine::makeInstance();
+
+	Engine::makeDebugMessenger();
 }
 
 void Engine::buildGlfwWindow() {
@@ -15,7 +19,7 @@ void Engine::buildGlfwWindow() {
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-	if (!(window = glfwCreateWindow(width, height, "Vulkan Engine", nullptr, nullptr))) {
+	if (!(window = glfwCreateWindow(width, height, "Cyan Crate: A Vulkan Engine", nullptr, nullptr))) {
 
 		std::cerr << "GLFW window failed to create!" << '\n';
 
@@ -26,7 +30,24 @@ void Engine::buildGlfwWindow() {
 
 Engine::~Engine() {
 
+	instance.destroyDebugUtilsMessengerEXT(debug_messenger, nullptr, dispatch_loader);
+
+	instance.destroy();
+
 	
 	glfwTerminate();
+
+}
+
+void Engine::makeInstance() {
+
+	instance = vkInit::makeInstance(debug_mode, "Cyan Crate: A Vulkan Engine");
+	dispatch_loader = vk::DispatchLoaderDynamic(instance, vkGetInstanceProcAddr);
+
+}
+
+void Engine::makeDebugMessenger() {
+
+	debug_messenger = vkInit::makeDebugMessenger(instance, dispatch_loader);
 
 }
