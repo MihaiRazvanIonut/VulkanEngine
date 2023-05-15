@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Config.hpp"
+#include <vulkan/vulkan.hpp>
+#include <iostream>
 
 namespace vkInit {
 

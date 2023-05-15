@@ -1,7 +1,10 @@
 #pragma once
 
+#define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
-#include "Config.hpp"
+#include <vulkan/vulkan.hpp>
+#include <iostream>
+
 
 class Engine {
 
@@ -21,10 +24,12 @@ private:
 	vk::Instance instance = nullptr;
 	vk::DispatchLoaderDynamic dispatch_loader;
 	vk::DebugUtilsMessengerEXT debug_messenger = nullptr;
+	vk::SurfaceKHR surface;
 
 	vk::PhysicalDevice physical_device = nullptr;
 	vk::Device device = nullptr;
 	vk::Queue graphics_queue = nullptr;
+	vk::Queue present_queue = nullptr;
 
 
 	void buildGlfwWindow();

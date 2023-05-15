@@ -1,5 +1,4 @@
 ﻿  Engine.cpp
-  main.cpp
-  Generating Code...
+C:\Facultate\LearningVulkan\VulkanEngine\Device.hpp(263,4): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   VulkanEngine.vcxproj -> C:\Facultate\LearningVulkan\VulkanEngine\x64\Debug\VulkanEngine.exe

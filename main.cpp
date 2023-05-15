@@ -6,6 +6,5 @@ int main() {
 
 	delete graphics_engine;
 
-
 	return 0;
 }

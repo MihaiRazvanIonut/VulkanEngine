@@ -29,9 +29,6 @@
     <ClInclude Include="Instance.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Config.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Logging.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -35,6 +35,8 @@ Engine::~Engine() {
 
 	device.destroy();
 
+	instance.destroySurfaceKHR(surface);
+
 	instance.destroyDebugUtilsMessengerEXT(debug_messenger, nullptr, dispatch_loader);
 
 	instance.destroy();
@@ -48,6 +50,29 @@ void Engine::makeInstance() {
 	instance = vkInit::makeInstance(debug_mode, "Cyan Crate: A Vulkan Engine");
 	dispatch_loader = vk::DispatchLoaderDynamic(instance, vkGetInstanceProcAddr);
 
+
+	VkSurfaceKHR c_style_surface;
+	
+	if (glfwCreateWindowSurface(instance, window, nullptr, &c_style_surface) != VK_SUCCESS) {
+
+		if (debug_mode) {
+
+			std::cout << "Failed to abstract the glfw surface for Vulkan!\n";
+
+		}
+
+		return;
+
+	}
+
+	if (debug_mode) {
+
+		std::cout << "Succeded to abstract the glfw surface for Vulkan!\n";
+
+	}
+
+	surface = c_style_surface;
+
 }
 
 void Engine::makeDebugMessenger() {
@@ -60,7 +85,9 @@ void Engine::makeDevice()
 {
 
 	physical_device = vkInit::choosePhysicalDevice(debug_mode, instance);
-	device = vkInit::createLogicalDevice(debug_mode, physical_device);
-	graphics_queue = vkInit::getQueue(debug_mode, physical_device, device);
+	device = vkInit::createLogicalDevice(debug_mode, physical_device, surface);
+	std::array<vk::Queue, 2>queue = vkInit::getQueue(debug_mode, physical_device, device, surface);
+	graphics_queue = queue[0];
+	present_queue = queue[1];
 
 }
