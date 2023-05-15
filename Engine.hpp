@@ -19,12 +19,13 @@ private:
 	GLFWwindow* window = nullptr;
 
 	vk::Instance instance = nullptr;
-
 	vk::DispatchLoaderDynamic dispatch_loader;
-
 	vk::DebugUtilsMessengerEXT debug_messenger = nullptr;
 
 	vk::PhysicalDevice physical_device = nullptr;
+	vk::Device device = nullptr;
+	vk::Queue graphics_queue = nullptr;
+
 
 	void buildGlfwWindow();
 

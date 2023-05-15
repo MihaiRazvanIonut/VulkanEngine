@@ -33,10 +33,11 @@ void Engine::buildGlfwWindow() {
 
 Engine::~Engine() {
 
+	device.destroy();
+
 	instance.destroyDebugUtilsMessengerEXT(debug_messenger, nullptr, dispatch_loader);
 
 	instance.destroy();
-
 	
 	glfwTerminate();
 
@@ -59,5 +60,7 @@ void Engine::makeDevice()
 {
 
 	physical_device = vkInit::choosePhysicalDevice(debug_mode, instance);
+	device = vkInit::createLogicalDevice(debug_mode, physical_device);
+	graphics_queue = vkInit::getQueue(debug_mode, physical_device, device);
 
 }
