@@ -35,5 +35,8 @@
     <ClInclude Include="Logging.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Device.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

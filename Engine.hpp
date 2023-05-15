@@ -6,12 +6,13 @@
 class Engine {
 
 public:
+
 	Engine();
 	~Engine();
 
 private:
 
-	bool debug_mode = true;
+	const bool debug_mode = true;
 
 	int width = 640;
 	int height = 480;
@@ -23,11 +24,15 @@ private:
 
 	vk::DebugUtilsMessengerEXT debug_messenger = nullptr;
 
+	vk::PhysicalDevice physical_device = nullptr;
+
 	void buildGlfwWindow();
 
 	void makeInstance();
 
 	void makeDebugMessenger();
+
+	void makeDevice();
 
 
 };

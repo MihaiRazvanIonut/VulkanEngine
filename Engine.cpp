@@ -1,15 +1,18 @@
 #include "Engine.hpp"
 #include "Instance.hpp"
 #include "Logging.hpp"
+#include "Device.hpp"
 
 
 Engine::Engine() {
 
 	buildGlfwWindow();
 
-	Engine::makeInstance();
+	makeInstance();
 
-	Engine::makeDebugMessenger();
+	makeDebugMessenger();
+
+	makeDevice();
 }
 
 void Engine::buildGlfwWindow() {
@@ -49,5 +52,12 @@ void Engine::makeInstance() {
 void Engine::makeDebugMessenger() {
 
 	debug_messenger = vkInit::makeDebugMessenger(instance, dispatch_loader);
+
+}
+
+void Engine::makeDevice()
+{
+
+	physical_device = vkInit::choosePhysicalDevice(debug_mode, instance);
 
 }

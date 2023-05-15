@@ -4,7 +4,7 @@
 
 namespace vkInit {
 
-	bool supported(bool debug, std::vector<const char*>& extentions, std::vector<const char*>& layers) {
+	bool supported(const bool debug, std::vector<const char*>& extentions, std::vector<const char*>& layers) {
 
 		std::vector<vk::ExtensionProperties> supported_extentions =
 			vk::enumerateInstanceExtensionProperties();
@@ -101,7 +101,7 @@ namespace vkInit {
 		return true;
 	}
 
-	vk::Instance makeInstance(bool debug, const char* application_name) {
+	vk::Instance makeInstance(const bool debug, const char* application_name) {
 
 
 		uint32_t version = 0;

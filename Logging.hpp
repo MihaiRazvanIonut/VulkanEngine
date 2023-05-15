@@ -20,7 +20,7 @@ namespace vkInit {
 		vk::DebugUtilsMessengerCreateInfoEXT create_debug_utils_messenger_callback_data_flags =
 			vk::DebugUtilsMessengerCreateInfoEXT(
 				vk::DebugUtilsMessengerCreateFlagsEXT(),
-				vk::DebugUtilsMessageSeverityFlagBitsEXT::eVerbose | vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning | vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
+				vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning | vk::DebugUtilsMessageSeverityFlagBitsEXT::eError,
 				vk::DebugUtilsMessageTypeFlagBitsEXT::eGeneral | vk::DebugUtilsMessageTypeFlagBitsEXT::eValidation | vk::DebugUtilsMessageTypeFlagBitsEXT::ePerformance,
 				debugCallback,
 				nullptr

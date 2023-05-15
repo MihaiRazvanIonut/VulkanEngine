@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.hpp" />
+    <ClInclude Include="Device.hpp" />
     <ClInclude Include="Engine.hpp" />
     <ClInclude Include="Instance.hpp" />
     <ClInclude Include="Logging.hpp" />
