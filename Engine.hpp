@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <vulkan/vulkan.hpp>
 #include <iostream>
+#include "Frame.hpp"
 
 
 class Engine {
@@ -30,8 +31,8 @@ private:
 	vk::Device device = nullptr;
 	vk::Queue graphics_queue = nullptr;
 	vk::Queue present_queue = nullptr;
-	vk::SwapchainKHR swapchain;
-	std::vector<vk::Image> swapchain_images;
+	vk::SwapchainKHR swapchain = nullptr;
+	std::vector<vkUtil::SwapChainFrame> swapchain_frames;
 	vk::Format swapchain_format;
 	vk::Extent2D swapchain_extent;
 

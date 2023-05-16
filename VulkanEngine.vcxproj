@@ -145,8 +145,11 @@
   <ItemGroup>
     <ClInclude Include="Device.hpp" />
     <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Frame.hpp" />
     <ClInclude Include="Instance.hpp" />
     <ClInclude Include="Logging.hpp" />
+    <ClInclude Include="QueueFamilies.hpp" />
+    <ClInclude Include="Swapchain.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

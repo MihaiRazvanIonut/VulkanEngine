@@ -5,6 +5,40 @@
 
 namespace vkInit {
 
+
+	void logDeviceProperties(const vk::PhysicalDevice& physical_device) {
+
+		vk::PhysicalDeviceProperties physical_device_properties = physical_device.getProperties();
+
+		std::cout << "Device name: " << physical_device_properties.deviceName << '\n';
+		std::cout << "Device type: ";
+
+		switch (physical_device_properties.deviceType) {
+
+		case (vk::PhysicalDeviceType::eCpu):
+			std::cout << "CPU\n";
+			break;
+
+		case (vk::PhysicalDeviceType::eDiscreteGpu):
+			std::cout << "Discrete GPU\n";
+			break;
+
+		case (vk::PhysicalDeviceType::eIntegratedGpu):
+			std::cout << "Integrated GPU\n";
+			break;
+
+		case (vk::PhysicalDeviceType::eVirtualGpu):
+			std::cout << "Virtual GPU\n";
+			break;
+
+		default:
+			std::cout << "Other type of physical device!\n";
+
+
+		}
+
+	}
+
 	VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
 		VkDebugUtilsMessageSeverityFlagBitsEXT			message_severity,
 		VkDebugUtilsMessageTypeFlagsEXT					message_type,

@@ -2,6 +2,7 @@
 #include "Instance.hpp"
 #include "Logging.hpp"
 #include "Device.hpp"
+#include "Swapchain.hpp"
 
 
 Engine::Engine() {
@@ -32,6 +33,12 @@ void Engine::buildGlfwWindow() {
 }
 
 Engine::~Engine() {
+
+	for (vkUtil::SwapChainFrame frame : swapchain_frames) {
+
+		device.destroyImageView(frame.image_view);
+
+	}
 
 	device.destroySwapchainKHR(swapchain);
 
@@ -96,7 +103,7 @@ void Engine::makeDevice()
 	vkInit::SwapChainBundle bundle = vkInit::createSwapChain(debug_mode, device, physical_device, surface, width, height);
 
 	swapchain = bundle.swapchain;
-	swapchain_images = bundle.images;
+	swapchain_frames = bundle.frames;
 	swapchain_format = bundle.format;
 	swapchain_extent = bundle.extent;
 

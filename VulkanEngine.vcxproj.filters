@@ -35,5 +35,14 @@
     <ClInclude Include="Device.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Swapchain.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueFamilies.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
