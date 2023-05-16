@@ -30,6 +30,10 @@ private:
 	vk::Device device = nullptr;
 	vk::Queue graphics_queue = nullptr;
 	vk::Queue present_queue = nullptr;
+	vk::SwapchainKHR swapchain;
+	std::vector<vk::Image> swapchain_images;
+	vk::Format swapchain_format;
+	vk::Extent2D swapchain_extent;
 
 
 	void buildGlfwWindow();

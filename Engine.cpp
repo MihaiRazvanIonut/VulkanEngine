@@ -33,6 +33,8 @@ void Engine::buildGlfwWindow() {
 
 Engine::~Engine() {
 
+	device.destroySwapchainKHR(swapchain);
+
 	device.destroy();
 
 	instance.destroySurfaceKHR(surface);
@@ -89,5 +91,13 @@ void Engine::makeDevice()
 	std::array<vk::Queue, 2>queue = vkInit::getQueue(debug_mode, physical_device, device, surface);
 	graphics_queue = queue[0];
 	present_queue = queue[1];
+
+	// vkInit::querySwapChainSupport(debug_mode, physical_device, surface); 
+	vkInit::SwapChainBundle bundle = vkInit::createSwapChain(debug_mode, device, physical_device, surface, width, height);
+
+	swapchain = bundle.swapchain;
+	swapchain_images = bundle.images;
+	swapchain_format = bundle.format;
+	swapchain_extent = bundle.extent;
 
 }
