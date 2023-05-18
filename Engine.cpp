@@ -3,6 +3,7 @@
 #include "Logging.hpp"
 #include "Device.hpp"
 #include "Swapchain.hpp"
+#include "GraphicsPipeline.hpp"
 
 
 Engine::Engine() {
@@ -14,6 +15,35 @@ Engine::Engine() {
 	makeDebugMessenger();
 
 	makeDevice();
+
+	makePipeline();
+}
+
+
+Engine::~Engine() {
+
+	device.destroyPipeline(graphics_pipeline);
+	device.destroyPipelineLayout(graphics_pipeline_layout);
+	device.destroyRenderPass(graphics_pipeline_render_pass);
+
+	for (vkUtil::SwapChainFrame frame : swapchain_frames) {
+
+		device.destroyImageView(frame.image_view);
+
+	}
+
+	device.destroySwapchainKHR(swapchain);
+
+	device.destroy();
+
+	instance.destroySurfaceKHR(surface);
+
+	instance.destroyDebugUtilsMessengerEXT(debug_messenger, nullptr, dispatch_loader);
+
+	instance.destroy();
+
+	glfwTerminate();
+
 }
 
 void Engine::buildGlfwWindow() {
@@ -32,27 +62,6 @@ void Engine::buildGlfwWindow() {
 
 }
 
-Engine::~Engine() {
-
-	for (vkUtil::SwapChainFrame frame : swapchain_frames) {
-
-		device.destroyImageView(frame.image_view);
-
-	}
-
-	device.destroySwapchainKHR(swapchain);
-
-	device.destroy();
-
-	instance.destroySurfaceKHR(surface);
-
-	instance.destroyDebugUtilsMessengerEXT(debug_messenger, nullptr, dispatch_loader);
-
-	instance.destroy();
-	
-	glfwTerminate();
-
-}
 
 void Engine::makeInstance() {
 
@@ -106,5 +115,23 @@ void Engine::makeDevice()
 	swapchain_frames = bundle.frames;
 	swapchain_format = bundle.format;
 	swapchain_extent = bundle.extent;
+
+}
+
+void Engine::makePipeline() {
+
+	vkInit::GraphicsPipelineInBundle specification = {};
+
+	specification.logical_device = device;
+	specification.vertex_file_path = "Shaders/vertex.spv";
+	specification.fragment_file_path = "Shaders/fragment.spv";
+	specification.swapchain_image_format = swapchain_format;
+	specification.swapchain_extent = swapchain_extent;
+
+	vkInit::GraphicsPipelineOutBundle output = vkInit::makeGraphicsPipeline(debug_mode, specification);
+
+	graphics_pipeline_layout = output.layout;
+	graphics_pipeline_render_pass = output.render_pass;
+	graphics_pipeline = output.pipeline;
 
 }

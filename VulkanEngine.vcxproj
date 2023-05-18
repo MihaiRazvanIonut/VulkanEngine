@@ -146,9 +146,11 @@
     <ClInclude Include="Device.hpp" />
     <ClInclude Include="Engine.hpp" />
     <ClInclude Include="Frame.hpp" />
+    <ClInclude Include="GraphicsPipeline.hpp" />
     <ClInclude Include="Instance.hpp" />
     <ClInclude Include="Logging.hpp" />
     <ClInclude Include="QueueFamilies.hpp" />
+    <ClInclude Include="Shaders\Shaders.h" />
     <ClInclude Include="Swapchain.hpp" />
   </ItemGroup>
   <ItemGroup>
