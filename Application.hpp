@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <vulkan/vulkan.hpp>
 #include "Engine.hpp"
+#include "Scene.hpp"
 
 class Application {
 
@@ -10,6 +11,7 @@ private:
 
 	Engine* graphics_engine;
 	GLFWwindow* window;
+	Scene* scene;
 
 	double last_time, current_time;
 	int num_frames;

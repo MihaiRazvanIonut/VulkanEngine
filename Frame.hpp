@@ -12,6 +12,9 @@ namespace vkUtil {
 		vk::Framebuffer framebuffer;
 		vk::CommandBuffer commandbuffer;
 
+		vk::Semaphore image_available, render_finished;
+		vk::Fence in_flight;
+
 	};
 
 }

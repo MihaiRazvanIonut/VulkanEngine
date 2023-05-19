@@ -5,6 +5,7 @@
 #include <vulkan/vulkan.hpp>
 #include <iostream>
 #include "Frame.hpp"
+#include "Scene.hpp"
 
 
 class Engine {
@@ -14,7 +15,7 @@ public:
 	Engine(const bool& debug, int width, int height, GLFWwindow* window);
 	~Engine();
 
-	void render();
+	void render(Scene* scene);
 
 private:
 
@@ -45,8 +46,7 @@ private:
 	vk::CommandPool command_pool;
 	vk::CommandBuffer main_command_buffer;
 
-	vk::Fence in_flight_fence;
-	vk::Semaphore image_available, render_finished;
+	int max_frames_in_flight, frame_number;
 
 	void makeInstance();
 
@@ -58,7 +58,7 @@ private:
 
 	void finalizeSetup();
 
-	void recordDrawCommands(vk::CommandBuffer command_buffer, uint32_t image_index);
+	void recordDrawCommands(vk::CommandBuffer command_buffer, uint32_t image_index, Scene* scene);
 
 
 };

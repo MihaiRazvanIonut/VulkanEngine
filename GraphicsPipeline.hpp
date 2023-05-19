@@ -3,6 +3,7 @@
 #include "Shaders/Shaders.h"
 #include <vulkan/vulkan.hpp>
 #include <iostream>
+#include "RenderStructs.hpp"
 
 namespace vkInit {
 
@@ -29,7 +30,12 @@ namespace vkInit {
 		vk::PipelineLayoutCreateInfo layout_info = {};
 		layout_info.flags = vk::PipelineLayoutCreateFlags();
 		layout_info.setLayoutCount = 0;
-		layout_info.pushConstantRangeCount = 0;
+		layout_info.pushConstantRangeCount = 1;
+		vk::PushConstantRange push_constant_info = {};
+		push_constant_info.offset = 0;
+		push_constant_info.size = sizeof(vkUtil::ObjectData);
+		push_constant_info.stageFlags = vk::ShaderStageFlagBits::eVertex;
+		layout_info.pPushConstantRanges = &push_constant_info;
 
 		try {
 

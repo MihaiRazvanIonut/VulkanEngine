@@ -6,6 +6,8 @@ Application::Application(const bool& debug, int width, int height) {
 
 	graphics_engine = new Engine(debug, width, height, window);
 
+	scene = new Scene();
+
 }
 
 void Application::buildGlfwWindow(const bool& debug, int width, int height) {
@@ -28,7 +30,7 @@ void Application::runApplication() {
 	while (!glfwWindowShouldClose(window)) {
 
 		glfwPollEvents();
-		graphics_engine->render();
+		graphics_engine->render(scene);
 		calculateFrameRate();
 	}
 
@@ -58,5 +60,6 @@ void Application::calculateFrameRate() {
 Application::~Application() {
 
 	delete graphics_engine;
+	delete scene;
 
 }
