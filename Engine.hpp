@@ -11,16 +11,18 @@ class Engine {
 
 public:
 
-	Engine();
+	Engine(const bool& debug, int width, int height, GLFWwindow* window);
 	~Engine();
+
+	void render();
 
 private:
 
-	const bool debug_mode = true;
+	bool debug_mode;
 
-	int width = 640;
-	int height = 480;
-	GLFWwindow* window = nullptr;
+	int width;
+	int height;
+	GLFWwindow* window;
 
 	vk::Instance instance = nullptr;
 	vk::DispatchLoaderDynamic dispatch_loader;
@@ -40,8 +42,11 @@ private:
 	vk::RenderPass graphics_pipeline_render_pass;
 	vk::Pipeline graphics_pipeline;
 
+	vk::CommandPool command_pool;
+	vk::CommandBuffer main_command_buffer;
 
-	void buildGlfwWindow();
+	vk::Fence in_flight_fence;
+	vk::Semaphore image_available, render_finished;
 
 	void makeInstance();
 
@@ -50,6 +55,10 @@ private:
 	void makeDevice();
 
 	void makePipeline();
+
+	void finalizeSetup();
+
+	void recordDrawCommands(vk::CommandBuffer command_buffer, uint32_t image_index);
 
 
 };

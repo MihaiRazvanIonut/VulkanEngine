@@ -1,10 +1,11 @@
-#include "Engine.hpp"
+#include "Application.hpp"
 
 int main() {
 
-	Engine* graphics_engine = new Engine();
+	Application* CyanCrate = new Application(true, 640, 480);
 
-	delete graphics_engine;
+	CyanCrate->runApplication();
+	delete CyanCrate;
 
 	return 0;
 }

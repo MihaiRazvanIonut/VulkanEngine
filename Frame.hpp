@@ -9,7 +9,8 @@ namespace vkUtil {
 
 		vk::Image image;
 		vk::ImageView image_view;
-
+		vk::Framebuffer framebuffer;
+		vk::CommandBuffer commandbuffer;
 
 	};
 
