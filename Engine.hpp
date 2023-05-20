@@ -54,11 +54,19 @@ private:
 
 	void makeDevice();
 
+	void makeSwapchain();
+
+	void recreateSwapchain();
+
 	void makePipeline();
 
 	void finalizeSetup();
 
+	void makeFramebuffers();
+	void makeFrameSynchronizationObjects();
+
 	void recordDrawCommands(vk::CommandBuffer command_buffer, uint32_t image_index, Scene* scene);
 
+	void cleanupSwapchain();
 
 };

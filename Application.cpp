@@ -15,7 +15,7 @@ void Application::buildGlfwWindow(const bool& debug, int width, int height) {
 	glfwInit();
 
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
 	if (!(window = glfwCreateWindow(width, height, "Cyan Crate: A Vulkan Engine", nullptr, nullptr))) {
 
@@ -45,7 +45,7 @@ void Application::calculateFrameRate() {
 	if (delta >= 1) {
 		int framerate{ std::max(1, int(num_frames / delta)) };
 		std::stringstream title;
-		title << "Running at " << framerate << " fps.";
+		title << "The Cyan Crate Engine is running at " << framerate << " frames per second";
 
 		glfwSetWindowTitle(window, title.str().c_str());
 		last_time = current_time;

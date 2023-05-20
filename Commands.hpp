@@ -42,7 +42,42 @@ namespace vkInit {
 
 	}
 
-	vk::CommandBuffer makeCommandBuffers(const bool& debug, CommandBufferInputChunk command_buffer_input_chunk) {
+	vk::CommandBuffer makeCommandBuffer(const bool& debug, CommandBufferInputChunk command_buffer_input_chunk) {
+
+		vk::CommandBufferAllocateInfo command_buffer_allocate_info = {};
+		command_buffer_allocate_info.commandPool = command_buffer_input_chunk.command_pool;
+		command_buffer_allocate_info.level = vk::CommandBufferLevel::ePrimary;
+		command_buffer_allocate_info.commandBufferCount = 1;
+
+
+		try {
+
+			vk::CommandBuffer commandbuffer = command_buffer_input_chunk.logical_device.allocateCommandBuffers(command_buffer_allocate_info)[0];
+
+			if (debug) {
+
+				std::cout << "Allocated main command buffer" << std::endl;
+
+			}
+
+			return commandbuffer;
+		}
+		catch (vk::SystemError err) {
+
+			if (debug) {
+
+				std::cout << "Failed to allocate main command buffer" << std::endl;
+
+			}
+
+			return nullptr;
+
+		}
+
+	}
+
+	
+	void makeFrameCommandBuffers(const bool& debug, CommandBufferInputChunk command_buffer_input_chunk) {
 
 		vk::CommandBufferAllocateInfo command_buffer_allocate_info = {};
 		command_buffer_allocate_info.commandPool = command_buffer_input_chunk.command_pool;
@@ -73,30 +108,8 @@ namespace vkInit {
 
 		}
 
-		try {
-
-			vk::CommandBuffer commandbuffer = command_buffer_input_chunk.logical_device.allocateCommandBuffers(command_buffer_allocate_info)[0];
-
-			if (debug) {
-
-				std::cout << "Allocated main command buffer" << std::endl;
-
-			}
-
-			return commandbuffer;
-		}
-		catch (vk::SystemError err) {
-
-			if (debug) {
-
-				std::cout << "Failed to allocate main command buffer" << std::endl;
-
-			}
-
-			return nullptr;
-
-		}
 
 	}
+
 
 }
